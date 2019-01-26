@@ -8,7 +8,7 @@ yes | apt-get update
 yes | apt-get upgrade
 
 # Pacotes básicos
-yes | apt-get install build-essential xz-utils curl apt-utils
+yes | apt-get install build-essential xz-utils curl apt-utils git
 
 # Kernel headers
 yes | apt-get install linux-headers-$(uname -r)

@@ -14,6 +14,7 @@ linux-headers
 
 __Desenvolvimento__
 ```bash
+git
 guake
 oracle-java8-installer
 node + npm
