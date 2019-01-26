@@ -1,5 +1,5 @@
 # Linux Starter Pack
-Um script bash para ser executado após uma formatação limpa do sistema, para reinstalar automagicamente todos os principais pacotes que utilizo no meu set-up de desenvolvimento.
+Um script bash para ser executado após uma formatação limpa do sistema, para re-instalar automagicamente todos os principais pacotes que utilizo no meu set-up de desenvolvimento.
 
 ## Modo de usar
 
@@ -12,7 +12,7 @@ sudo ./script.sh
 Digite o seu nome de usuário do Linux e vá tomar um café enquanto o script trabalha.
 
 ## Compatibilidade
-Este script se baseia muito no gerenciador de pacotes APT, então o ideal é utiliza-lo em distribuições baseadas em debian/ubuntu (Desenvolvi o script no Linux Mint)
+Este script se baseia muito no gerenciador de pacotes APT, então o ideal é utiliza-lo em distribuições baseadas em debian/ubuntu (Desenvolvi o script no Linux Mint, kernel 4.15.0)
 
 ## Pacotes inclusos
 
