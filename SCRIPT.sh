@@ -1,27 +1,30 @@
 #Pegar as informações de usuário
 read -p 'DIGITE O NOME DE USUÁRIO PARA A CONFIGURAÇÃO: ' usuario
-
+#####################################################################
 # update do apt
 yes | apt-get update
 
+#####################################################################
 # upgrade do sistema
 yes | apt-get upgrade
 
+#####################################################################
 # Pacotes básicos
-yes | apt-get install build-essential xz-utils curl apt-utils git
+yes | apt-get install build-essential xz-utils curl apt-utils git wget postgresql-client guake virtualbox virtualbox-ext-pack virtualbox-guest-additions-iso virtualbox-guest-utils mongodb-clients sqlite3 umbrello net-tools
 
+#####################################################################
 # Kernel headers
 yes | apt-get install linux-headers-$(uname -r)
 
-# instalação do meu terminal favorito
-yes | apt-get install guake
-
+#####################################################################
 # instalação do Oracle Java 8
 yes | apt-get purge openjdk*
 yes | add-apt-repository ppa:webupd8team/java
 yes | apt-get update
 yes | apt-get install oracle-java8-installer
+yes | apt-get install maven ant gradle
 
+#####################################################################
 # instalação do Nodejs e NPM
 mkdir /usr/local/bin/node
 cd /usr/local/bin/node
@@ -34,6 +37,7 @@ echo 'export PATH="$PATH:/usr/local/bin/node/bin"' >> /home/$usuario/.profile
 export PATH="$PATH:/usr/local/bin/node/bin"
 npm install -g npm
 
+#####################################################################
 # Docker
 cd /$usuario/Downloads
 curl get.docker.com -Lo - | sh
@@ -41,6 +45,62 @@ usermod -aG docker $usuario
 curl -L https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 
+#####################################################################
 #VSCode
 curl https://az764295.vo.msecnd.net/stable/61122f88f0bf01e2ac16bdb9e1bc4571755f5bd8/code_1.30.2-1546901646_amd64.deb --output vscode.deb
 dpkg -i vscode.deb
+
+#####################################################################
+#Postman
+cd /usr/share
+curl https://dl.pstmn.io/download/latest/linux64 --output postman.tar.gz
+tar -zxvf postman.tar.gz
+rm postman.tar.gz
+chmod +x Postman/Postman
+chown $usuario Postman -R
+echo 'export PATH="$PATH:/usr/share/Postman"' >> /home/$usuario/.profile
+
+# Gerando o ícone do Postman
+touch /usr/share/applications/Postman.desktop
+echo "[Desktop Entry]" >> /usr/share/applications/Postman.desktop
+echo "Type=Application" >> /usr/share/applications/Postman.desktop
+echo "Encoding=UTF-8" >> /usr/share/applications/Postman.desktop
+echo "Name=Postman" >> /usr/share/applications/Postman.desktop
+echo "Comment=Postman" >> /usr/share/applications/Postman.desktop
+echo "Exec=/usr/share/applications/Postman/Postman" >> /usr/share/applications/Postman.desktop
+echo "Icon=/usr/share/applications/Postman/app/resources/app/assets/icon.png" >> /usr/share/applications/Postman.desktop
+echo "Terminal=false" >> /usr/share/applications/Postman.desktop
+echo "Type=Application" >> /usr/share/applications/Postman.desktop
+echo "Categories=GNOME;Application;Development;" >> /usr/share/applications/Postman.desktop
+echo "StartupNotify=true" >> /usr/share/applications/Postman.desktop
+
+#####################################################################
+#DBeaver
+cd /home/$usuario/Downloads
+curl https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb --output dbeaver.deb
+dpkg -i dbeaver.deb
+
+#####################################################################
+# Eclipse
+cd /usr/share
+curl http://eclipse.c3sl.ufpr.br/technology/epp/downloads/release/2018-12/R/eclipse-jee-2018-12-R-linux-gtk-x86_64.tar.gz --output eclipse.tar.gz
+tar -zxvf eclipse.tar.gz
+rm eclipse.tar.gz
+chmod +x eclipse/eclipse
+chown $usuario eclipse -R
+echo 'export PATH="$PATH:/usr/share/eclipse"' >> /home/$usuario/.profile
+# Gerando o ícone do Eclipse
+touch /usr/share/applications/Eclipse.desktop
+echo "[Desktop Entry]" >> /usr/share/applications/Eclipse.desktop
+echo "Type=Application" >> /usr/share/applications/Eclipse.desktop
+echo "Encoding=UTF-8" >> /usr/share/applications/Eclipse.desktop
+echo "Name=Eclipse" >> /usr/share/applications/Eclipse.desktop
+echo "Comment=Eclipse" >> /usr/share/applications/Eclipse.desktop
+echo "Exec=/usr/share/eclipse/eclipse" >> /usr/share/applications/Eclipse.desktop
+echo "Icon=/usr/share/eclipse/icon.xpm" >> /usr/share/applications/Eclipse.desktop
+echo "Terminal=false" >> /usr/share/applications/Eclipse.desktop
+echo "Type=Application" >> /usr/share/applications/Eclipse.desktop
+echo "Categories=GNOME;Application;Development;" >> /usr/share/applications/Eclipse.desktop
+echo "StartupNotify=true" >> /usr/share/applications/Eclipse.desktop
+
+#####################################################################

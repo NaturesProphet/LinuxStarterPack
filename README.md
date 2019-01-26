@@ -7,18 +7,38 @@ __Básicos__
 ```bash
 build-essential 
 xz-utils 
-curl 
+curl
+wget
 apt-utils
 linux-headers
+net-tools
+```
+
+__Virtualização Básica__
+```bash
+virtualbox
+virtualbox-ext-pack
+virtualbox-guest-additions-iso
+virtualbox-guest-utils
 ```
 
 __Desenvolvimento__
 ```bash
 git
 guake
+postgresql-client
+sqlite3
+mongodb-clients
+maven
+ant
+gradle
 oracle-java8-installer
 node + npm
 Docker
 VSCode
+Postman
+DBeaver
+Eclipse
+Umbrello
 ```
 
