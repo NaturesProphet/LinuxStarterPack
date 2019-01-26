@@ -38,6 +38,10 @@ export PATH="$PATH:/usr/local/bin/node/bin"
 npm install -g npm
 
 #####################################################################
+# Nestjs Framework
+npm i -g @nestjs/cli typescript
+
+#####################################################################
 # Docker
 cd /$usuario/Downloads
 curl get.docker.com -Lo - | sh

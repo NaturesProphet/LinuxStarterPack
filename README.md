@@ -1,4 +1,4 @@
-# LinuxStarterPack
+# Linux Starter Pack
 Um script bash para ser executado após a formatação do sistema, para reinstalar automaticamente todos os principais pacotes que utilizo no meu set-up de desenvolvimento.
 
 ## Pacotes inclusos
@@ -34,11 +34,13 @@ ant
 gradle
 oracle-java8-installer
 node + npm
+modulo typescript global (npm)
 Docker
 VSCode
 Postman
 DBeaver
 Eclipse
 Umbrello
+Nestjs Framework
 ```
 
