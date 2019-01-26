@@ -58,4 +58,5 @@ Umbrello
 Nestjs Framework
 sonar-scanner
 DotNet Core SDK 2.1
+Android Studio
 ```

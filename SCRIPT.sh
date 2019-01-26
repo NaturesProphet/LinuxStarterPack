@@ -131,4 +131,28 @@ yes | apt-get update
 yes | apt-get install dotnet-sdk-2.1
 
 #####################################################################
-# 
+# Android Studio
+cd /usr/share
+wget https://dl.google.com/dl/android/studio/ide-zips/3.2.1.0/android-studio-ide-181.5056338-linux.zip
+unzip android-studio-ide-181.5056338-linux.zip
+rm android-studio-ide-181.5056338-linux.zip
+cd android-studio
+chmod +x bin/* -R 
+echo 'export PATH="$PATH:/usr/share/android-studio/bin"' >> /home/$usuario/.profile
+chown $usuario /usr/share/android-studio -R
+touch /usr/share/applications/AndroidStudio.desktop
+echo "[Desktop Entry]" >> /usr/share/applications/AndroidStudio.desktop
+echo "Type=Application" >> /usr/share/applications/AndroidStudio.desktop
+echo "Encoding=UTF-8" >> /usr/share/applications/AndroidStudio.desktop
+echo "Name=Android Studio" >> /usr/share/applications/AndroidStudio.desktop
+echo "Comment=Android Studio" >> /usr/share/applications/AndroidStudio.desktop
+echo "Exec=/usr/share/android-studio/bin/studio.sh" >> /usr/share/applications/AndroidStudio.desktop
+echo "Path=/usr/share/android-studio/bin" >> /usr/share/applications/AndroidStudio.desktop
+echo "Icon=/usr/share/android-studio/bin/studio.png" >> /usr/share/applications/AndroidStudio.desktop
+echo "Terminal=false" >> /usr/share/applications/AndroidStudio.desktop
+echo "Type=Application" >> /usr/share/applications/AndroidStudio.desktop
+echo "Categories=GNOME;Application;Development;" >> /usr/share/applications/AndroidStudio.desktop
+echo "StartupNotify=true" >> /usr/share/applications/AndroidStudio.desktop
+
+#####################################################################
+#
