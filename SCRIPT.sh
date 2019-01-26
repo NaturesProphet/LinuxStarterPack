@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #Pegar as informações de usuário
 read -p 'DIGITE O NOME DE USUÁRIO PARA A CONFIGURAÇÃO: ' usuario
 #####################################################################

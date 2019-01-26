@@ -1,5 +1,5 @@
 # Linux Starter Pack
-Um script bash para ser executado após a formatação do sistema, para reinstalar automaticamente todos os principais pacotes que utilizo no meu set-up de desenvolvimento.
+Um script bash para ser executado após uma formatação limpa do sistema, para reinstalar automaticamente todos os principais pacotes que utilizo no meu set-up de desenvolvimento.
 
 ## Modo de usar
 
