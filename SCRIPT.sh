@@ -118,3 +118,17 @@ rm sonar-scanner-cli-3.3.0.1492-linux.zip
 chmod +x sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner
 chown $usuario sonar-scanner-3.3.0.1492-linux -R
 echo 'export PATH="$PATH:/usr/share/sonar-scanner-3.3.0.1492-linux/bin"' >> /home/$usuario/.profile
+
+#####################################################################
+# DotNet Core 2.1 SDK
+cd /home/$usuario/Downloads
+wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
+dpkg -i packages-microsoft-prod.deb
+rm packages-microsoft-prod.deb
+yes | add-apt-repository universe
+yes | apt-get install apt-transport-https
+yes | apt-get update
+yes | apt-get install dotnet-sdk-2.1
+
+#####################################################################
+# 
