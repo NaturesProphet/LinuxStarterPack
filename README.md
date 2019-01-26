@@ -1,5 +1,5 @@
 # Linux Starter Pack
-Um script bash para ser executado após uma formatação limpa do sistema, para reinstalar automaticamente todos os principais pacotes que utilizo no meu set-up de desenvolvimento.
+Um script bash para ser executado após uma formatação limpa do sistema, para reinstalar automagicamente todos os principais pacotes que utilizo no meu set-up de desenvolvimento.
 
 ## Modo de usar
 
@@ -19,7 +19,8 @@ Este script se baseia muito no gerenciador de pacotes APT, então o ideal é uti
 __Básicos__
 ```bash
 build-essential 
-xz-utils 
+xz-utils
+unzip
 curl
 wget
 apt-utils
@@ -55,5 +56,6 @@ DBeaver
 Eclipse
 Umbrello
 Nestjs Framework
+sonar-scanner
 ```
 

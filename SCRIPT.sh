@@ -12,7 +12,7 @@ yes | apt-get upgrade
 
 #####################################################################
 # Pacotes básicos
-yes | apt-get install build-essential xz-utils curl apt-utils git wget postgresql-client guake virtualbox virtualbox-ext-pack virtualbox-guest-additions-iso virtualbox-guest-utils mongodb-clients sqlite3 umbrello net-tools
+yes | apt-get install build-essential xz-utils curl apt-utils git wget postgresql-client guake virtualbox virtualbox-ext-pack virtualbox-guest-additions-iso virtualbox-guest-utils mongodb-clients sqlite3 umbrello net-tools unzip
 
 #####################################################################
 # Kernel headers
@@ -110,3 +110,11 @@ echo "Categories=GNOME;Application;Development;" >> /usr/share/applications/Ecli
 echo "StartupNotify=true" >> /usr/share/applications/Eclipse.desktop
 
 #####################################################################
+# sonar-scanner
+cd /usr/share
+wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
+unzip sonar-scanner-cli-3.3.0.1492-linux.zip
+rm sonar-scanner-cli-3.3.0.1492-linux.zip
+chmod +x sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner
+chown $usuario sonar-scanner-3.3.0.1492-linux -R
+echo 'export PATH="$PATH:/usr/share/sonar-scanner-3.3.0.1492-linux/bin"' >> /home/$usuario/.profile
