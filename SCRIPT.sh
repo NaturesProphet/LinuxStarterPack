@@ -26,14 +26,6 @@ apt-get install google-chrome-stable
 yes | apt-get install linux-headers-$(uname -r)
 
 #####################################################################
-# instalação do Oracle Java 8
-yes | apt-get purge openjdk*
-add-apt-repository ppa:webupd8team/java -y
-yes | apt-get update
-yes | apt-get install oracle-java8-installer
-yes | apt-get install maven ant gradle
-
-#####################################################################
 # instalação do Nodejs e NPM
 mkdir /usr/local/bin/node
 cd /usr/local/bin/node
@@ -161,9 +153,18 @@ echo "Type=Application" >> /usr/share/applications/AndroidStudio.desktop
 echo "Categories=GNOME;Application;Development;" >> /usr/share/applications/AndroidStudio.desktop
 echo "StartupNotify=true" >> /usr/share/applications/AndroidStudio.desktop
 
+# Os próximos pacotes necessitam de confirmação do usuário durante a execução e foram deixados por último
 #####################################################################
 # VirtualBox
 apt-get install virtualbox virtualbox-qt virtualbox-ext-pack virtualbox-guest-additions-iso virtualbox-guest-utils -y
+
+#####################################################################
+# instalação do Oracle Java 8
+yes | apt-get purge openjdk*
+add-apt-repository ppa:webupd8team/java -y
+yes | apt-get update
+apt-get install oracle-java8-installer -y
+apt-get install maven ant gradle -y
 
 #####################################################################
 # 
