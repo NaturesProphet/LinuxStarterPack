@@ -26,6 +26,7 @@ wget
 apt-utils
 linux-headers
 net-tools
+Google Chrome Stable
 ```
 
 __Virtualização Básica__

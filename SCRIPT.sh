@@ -15,6 +15,13 @@ yes | apt-get upgrade
 yes | apt-get install build-essential xz-utils curl apt-utils git wget postgresql-client guake virtualbox virtualbox-ext-pack virtualbox-guest-additions-iso virtualbox-guest-utils mongodb-clients sqlite3 umbrello net-tools unzip
 
 #####################################################################
+# Google Chrome
+yes | sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+apt-get update
+apt-get install google-chrome-stable
+
+#####################################################################
 # Kernel headers
 yes | apt-get install linux-headers-$(uname -r)
 
