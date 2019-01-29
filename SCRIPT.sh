@@ -12,7 +12,7 @@ yes | apt-get upgrade
 
 #####################################################################
 # Pacotes básicos
-apt-get install build-essential xz-utils curl apt-utils git wget postgresql-client guake virtualbox virtualbox-qt virtualbox-ext-pack virtualbox-guest-additions-iso virtualbox-guest-utils mongodb-clients sqlite3 umbrello net-tools unzip steam -y
+apt-get install build-essential xz-utils curl apt-utils git wget postgresql-client guake mongodb-clients sqlite3 umbrello net-tools unzip steam -y
 
 #####################################################################
 # Google Chrome
@@ -162,4 +162,8 @@ echo "Categories=GNOME;Application;Development;" >> /usr/share/applications/Andr
 echo "StartupNotify=true" >> /usr/share/applications/AndroidStudio.desktop
 
 #####################################################################
-#
+# VirtualBox
+apt-get install virtualbox virtualbox-qt virtualbox-ext-pack virtualbox-guest-additions-iso virtualbox-guest-utils -y
+
+#####################################################################
+# 
