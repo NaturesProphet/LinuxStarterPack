@@ -61,3 +61,7 @@ sonar-scanner
 DotNet Core SDK 2.1
 Android Studio
 ```
+__Jogos__
+```bash
+Steam
+```

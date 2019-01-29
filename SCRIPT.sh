@@ -12,11 +12,11 @@ yes | apt-get upgrade
 
 #####################################################################
 # Pacotes básicos
-yes | apt-get install build-essential xz-utils curl apt-utils git wget postgresql-client guake virtualbox virtualbox-ext-pack virtualbox-guest-additions-iso virtualbox-guest-utils mongodb-clients sqlite3 umbrello net-tools unzip
+apt-get install build-essential xz-utils curl apt-utils git wget postgresql-client guake virtualbox virtualbox-qt virtualbox-ext-pack virtualbox-guest-additions-iso virtualbox-guest-utils mongodb-clients sqlite3 umbrello net-tools unzip steam -y
 
 #####################################################################
 # Google Chrome
-yes | sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+yes | sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 apt-get update
 apt-get install google-chrome-stable
@@ -28,7 +28,7 @@ yes | apt-get install linux-headers-$(uname -r)
 #####################################################################
 # instalação do Oracle Java 8
 yes | apt-get purge openjdk*
-yes | add-apt-repository ppa:webupd8team/java
+add-apt-repository ppa:webupd8team/java -y
 yes | apt-get update
 yes | apt-get install oracle-java8-installer
 yes | apt-get install maven ant gradle
@@ -80,8 +80,8 @@ echo "Type=Application" >> /usr/share/applications/Postman.desktop
 echo "Encoding=UTF-8" >> /usr/share/applications/Postman.desktop
 echo "Name=Postman" >> /usr/share/applications/Postman.desktop
 echo "Comment=Postman" >> /usr/share/applications/Postman.desktop
-echo "Exec=/usr/share/applications/Postman/Postman" >> /usr/share/applications/Postman.desktop
-echo "Icon=/usr/share/applications/Postman/app/resources/app/assets/icon.png" >> /usr/share/applications/Postman.desktop
+echo "Exec=/usr/share/Postman/Postman" >> /usr/share/applications/Postman.desktop
+echo "Icon=/usr/share/Postman/app/resources/app/assets/icon.png" >> /usr/share/applications/Postman.desktop
 echo "Terminal=false" >> /usr/share/applications/Postman.desktop
 echo "Type=Application" >> /usr/share/applications/Postman.desktop
 echo "Categories=GNOME;Application;Development;" >> /usr/share/applications/Postman.desktop
@@ -90,8 +90,8 @@ echo "StartupNotify=true" >> /usr/share/applications/Postman.desktop
 #####################################################################
 #DBeaver
 cd /home/$usuario/Downloads
-curl https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb --output dbeaver.deb
-dpkg -i dbeaver.deb
+wget https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb
+dpkg -i dbeaver-ce_latest_amd64.deb
 
 #####################################################################
 # Eclipse
