@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo 'HORARIO DE INICIO'
+timedatectl
+
 #Pegar as informações de usuário
 read -p 'DIGITE O NOME DE USUÁRIO PARA A CONFIGURAÇÃO: ' usuario
 #####################################################################
@@ -153,6 +156,10 @@ echo "Type=Application" >> /usr/share/applications/AndroidStudio.desktop
 echo "Categories=GNOME;Application;Development;" >> /usr/share/applications/AndroidStudio.desktop
 echo "StartupNotify=true" >> /usr/share/applications/AndroidStudio.desktop
 
+#####################################################################
+echo 'HORARIO SEMI-FINAL'
+timedatectl
+
 # Os próximos pacotes necessitam de confirmação do usuário durante a execução e foram deixados por último
 #####################################################################
 # VirtualBox
@@ -168,3 +175,6 @@ apt-get install maven ant gradle -y
 
 #####################################################################
 # 
+
+echo 'HORARIO FINAL'
+timedatectl
