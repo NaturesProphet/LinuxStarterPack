@@ -44,6 +44,7 @@ guake
 postgresql-client
 sqlite3
 mongodb-clients
+mysql-workbench
 oracle-java8-installer
 maven
 ant
