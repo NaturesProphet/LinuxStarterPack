@@ -138,6 +138,7 @@ curl http://central.maven.org/maven2/org/apache/activemq/activemq-all/5.15.8/act
 logstash-plugin install logstash-output-jdbc
 logstash-plugin install logstash-filter-json_encode
 logstash-plugin install logstash-output-mongodb
+logstash-plugin install logstash-input-jms
 wget https://github.com/Microsoft/mssql-jdbc/releases/download/v7.0.0/mssql-jdbc-7.0.0.jre8.jar -o /usr/share/logstash/mssql-jdbc-7.0.0.jre8.jar
 
 #####################################################################
