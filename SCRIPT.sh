@@ -123,25 +123,6 @@ chown $usuario sonar-scanner-3.3.0.1492-linux -R
 echo 'export PATH="$PATH:/usr/share/sonar-scanner-3.3.0.1492-linux/bin"' >> /home/$usuario/.profile
 
 #####################################################################
-# logstash
-cd /usr/share/
-wget https://artifacts.elastic.co/downloads/logstash/logstash-6.6.1.tar.gz
-tar -zxvf logstash-6.6.1.tar.gz
-rm logstash-6.6.1.tar.gz
-mv logstash-6.6.1/ logstash
-chmod +x logstash/bin/ -R
-chown $usuario logstash -R
-echo 'export PATH="$PATH:/usr/share/logstash/bin"' >> /home/$usuario/.profile
-source /home/$usuario/.profile
-mkdir logstash/activemq
-curl http://central.maven.org/maven2/org/apache/activemq/activemq-all/5.15.8/activemq-all-5.15.8.jar -o /usr/share/logstash/activemq/activemq-all-5.15.8.jar
-logstash-plugin install logstash-output-jdbc
-logstash-plugin install logstash-filter-json_encode
-logstash-plugin install logstash-output-mongodb
-logstash-plugin install logstash-input-jms
-wget https://github.com/Microsoft/mssql-jdbc/releases/download/v7.0.0/mssql-jdbc-7.0.0.jre8.jar -o /usr/share/logstash/mssql-jdbc-7.0.0.jre8.jar
-
-#####################################################################
 # DotNet Core 2.1 SDK
 cd /home/$usuario/Downloads
 wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
@@ -194,7 +175,31 @@ apt-get install oracle-java8-installer -y
 apt-get install maven ant gradle -y
 
 #####################################################################
+# logstash
+cd /usr/share/
+wget https://artifacts.elastic.co/downloads/logstash/logstash-6.6.1.tar.gz
+tar -zxvf logstash-6.6.1.tar.gz
+rm logstash-6.6.1.tar.gz
+mv logstash-6.6.1/ logstash
+chmod +x logstash/bin/ -R
+chown $usuario logstash -R
+echo 'export PATH="$PATH:/usr/share/logstash/bin"' >> /home/$usuario/.profile
+source /home/$usuario/.profile
+mkdir logstash/activemq
+curl http://central.maven.org/maven2/org/apache/activemq/activemq-all/5.15.8/activemq-all-5.15.8.jar -o /usr/share/logstash/activemq/activemq-all-5.15.8.jar
+logstash-plugin install logstash-output-jdbc
+logstash-plugin install logstash-filter-json_encode
+logstash-plugin install logstash-output-mongodb
+logstash-plugin install logstash-input-jms
+wget https://github.com/Microsoft/mssql-jdbc/releases/download/v7.0.0/mssql-jdbc-7.0.0.jre8.jar -o /usr/share/logstash/mssql-jdbc-7.0.0.jre8.jar
+
+#####################################################################
+# updates
+apt-get update -y
+apt-get upgrade -y
+#####################################################################
 # 
+
 
 echo 'HORARIO FINAL'
 timedatectl
