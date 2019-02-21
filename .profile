@@ -17,3 +17,4 @@ export MSSQL_HOST="192.168.1.100"
 export MSSQL_PORT=1433
 export MSSQL_SCHEMA="tempdb"
 export MSSQL_USER="SA"
+export MSSQL_PASSWORD="!SenhaDificil%"
