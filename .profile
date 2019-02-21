@@ -15,3 +15,5 @@ export MONGO_DB_NAME="realtime"
 export MONGO_URI="mongodb://admin:admin123@192.168.1.100:27017"
 export MSSQL_HOST="192.168.1.100"
 export MSSQL_PORT=1433
+export MSSQL_SCHEMA="tempdb"
+export MSSQL_USER="SA"
