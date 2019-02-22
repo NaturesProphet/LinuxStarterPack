@@ -84,9 +84,9 @@ echo "StartupNotify=true" >> /usr/share/applications/Postman.desktop
 
 #####################################################################
 #DBeaver
-yes | echo "deb https://dbeaver.io/debs/dbeaver-ce /" | sudo tee /etc/apt/sources.list.d/dbeaver.list
-wget -O - https://dbeaver.io/debs/dbeaver.gpg.key | sudo apt-key add -
-apt-get update
+# yes | echo "deb https://dbeaver.io/debs/dbeaver-ce /" | sudo tee /etc/apt/sources.list.d/dbeaver.list
+# wget -O - https://dbeaver.io/debs/dbeaver.gpg.key | sudo apt-key add -
+# apt-get update
 apt-get install dbeaver-ce -y
 
 #####################################################################
@@ -132,6 +132,10 @@ yes | add-apt-repository universe
 yes | apt-get install apt-transport-https
 yes | apt-get update
 yes | apt-get install dotnet-sdk-2.1
+
+#####################################################################
+# Heroku CLI
+curl https://cli-assets.heroku.com/install.sh | sh
 
 #####################################################################
 # Android Studio
