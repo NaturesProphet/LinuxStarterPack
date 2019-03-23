@@ -55,6 +55,7 @@ Docker
 VSCode
 Postman
 DBeaver
+robo3t
 Heroku CLI
 Eclipse
 Umbrello

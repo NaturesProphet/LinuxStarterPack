@@ -123,6 +123,31 @@ chown $usuario sonar-scanner-3.3.0.1492-linux -R
 echo 'export PATH="$PATH:/usr/share/sonar-scanner-3.3.0.1492-linux/bin"' >> /home/$usuario/.profile
 
 #####################################################################
+# robo 3t
+cd /usr/share
+wget https://download.robomongo.org/1.2.1/linux/robo3t-1.2.1-linux-x86_64-3e50a65.tar.gz
+tar -zxvf robo3t-1.2.1-linux-x86_64-3e50a65.tar.gz
+rm robo3t-1.2.1-linux-x86_64-3e50a65.tar.gz
+chown $usuario robo3t-1.2.1-linux-x86_64-3e50a65/ -R
+cd robo3t-1.2.1-linux-x86_64-3e50a65/
+chmod +x bin/robo3t
+chown $usuario sonar-scanner-3.3.0.1492-linux -R
+echo 'export PATH="$PATH:/usr/share/robo3t-1.2.1-linux-x86_64-3e50a65/bin"' >> /home/$usuario/.profile
+
+# Gerando o ícone do robo3t
+touch /usr/share/applications/Robo3t.desktop
+echo "[Desktop Entry]" >> /usr/share/applications/Robo3t.desktop
+echo "Type=Application" >> /usr/share/applications/Robo3t.desktop
+echo "Encoding=UTF-8" >> /usr/share/applications/Robo3t.desktop
+echo "Name=Robo3t" >> /usr/share/applications/Robo3t.desktop
+echo "Comment=Robo3t" >> /usr/share/applications/Robo3t.desktop
+echo "Exec=/usr/share/robo3t-1.2.1-linux-x86_64-3e50a65/bin/robo3t" >> /usr/share/applications/Robo3t.desktop
+echo "Terminal=false" >> /usr/share/applications/Robo3t.desktop
+echo "Type=Application" >> /usr/share/applications/Robo3t.desktop
+echo "Categories=GNOME;Application;Development;" >> /usr/share/applications/Robo3t.desktop
+echo "StartupNotify=true" >> /usr/share/applications/Robo3t.desktop
+#####################################################################
+
 # DotNet Core 2.1 SDK
 cd /home/$usuario/Downloads
 wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
