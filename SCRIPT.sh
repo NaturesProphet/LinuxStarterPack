@@ -204,6 +204,29 @@ apt-get install oracle-java8-installer -y
 apt-get install maven ant gradle -y
 
 #####################################################################
+# instalação do PDI
+cd /usr
+wget https://ufpr.dl.sourceforge.net/project/pentaho/Pentaho%208.2/client-tools/pdi-ce-8.2.0.0-342.zip
+unzip pdi-ce-8.2.0.0-342.zip
+rm pdi-ce-8.2.0.0-342.zip
+chown $usuario /usr/data-integration -R
+chmod +x /usr/data-integration/spoon.sh
+
+# Gerando o ícone do PDI
+touch /usr/share/applications/pdi.desktop
+echo "[Desktop Entry]" >> /usr/share/applications/pdi.desktop
+echo "Type=Application" >> /usr/share/applications/pdi.desktop
+echo "Encoding=UTF-8" >> /usr/share/applications/pdi.desktop
+echo "Name=Pentaho Data Integration" >> /usr/share/applications/pdi.desktop
+echo "Comment=PDI" >> /usr/share/applications/pdi.desktop
+echo "Exec=/usr/data-integration/spoon.sh" >> /usr/share/applications/pdi.desktop
+echo "Icon=/usr/data-integration/spoon.ico" >> /usr/share/applications/pdi.desktop
+echo "Terminal=false" >> /usr/share/applications/pdi.desktop
+echo "Type=Application" >> /usr/share/applications/pdi.desktop
+echo "Categories=GNOME;Application;Development;" >> /usr/share/applications/pdi.desktop
+echo "StartupNotify=true" >> /usr/share/applications/pdi.desktop
+
+#####################################################################
 # logstash
 cd /usr/share/
 wget https://artifacts.elastic.co/downloads/logstash/logstash-6.6.1.tar.gz

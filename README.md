@@ -46,6 +46,7 @@ sqlite3
 mongodb-clients
 mysql-workbench
 oracle-java8-installer
+Pentaho Data Integration - PDI
 maven
 ant
 gradle
