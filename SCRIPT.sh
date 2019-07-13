@@ -1,4 +1,9 @@
 #!/bin/bash
+###################################################
+###################################################
+######### Script atualizado em 12/07/2019 #########
+###################################################
+###################################################
 
 echo 'HORARIO DE INICIO'
 timedatectl
@@ -30,16 +35,14 @@ yes | apt-get install linux-headers-$(uname -r)
 
 #####################################################################
 # instalação do Nodejs e NPM
-mkdir /usr/local/bin/node
-cd /usr/local/bin/node
-curl https://nodejs.org/dist/v10.15.0/node-v10.15.0-linux-x64.tar.xz --output node.tar.xz
-tar -Jxxvf node.tar.xz
-rm node.tar.xz
-cp node-v10.15.0-linux-x64/* . -R
-chown $usuario * -R
-echo 'export PATH="$PATH:/usr/local/bin/node/bin"' >> /home/$usuario/.profile
-export PATH="$PATH:/usr/local/bin/node/bin"
-npm install -g npm
+cd /home/$usuario/Downloads
+wget https://nodejs.org/dist/v10.16.0/node-v10.16.0.tar.gz -O node.tar.gz
+tar -zxvf node.tar.gz
+rm node.tar.gz
+cd node*
+./configure
+make
+make install
 
 #####################################################################
 # Nestjs Framework
@@ -66,7 +69,7 @@ tar -zxvf postman.tar.gz
 rm postman.tar.gz
 chmod +x Postman/Postman
 chown $usuario Postman -R
-echo 'export PATH="$PATH:/usr/share/Postman"' >> /home/$usuario/.profile
+echo 'export PATH="$PATH:/usr/share/Postman"' >> /etc/profile
 
 # Gerando o ícone do Postman
 touch /usr/share/applications/Postman.desktop
@@ -84,9 +87,9 @@ echo "StartupNotify=true" >> /usr/share/applications/Postman.desktop
 
 #####################################################################
 #DBeaver
-# yes | echo "deb https://dbeaver.io/debs/dbeaver-ce /" | sudo tee /etc/apt/sources.list.d/dbeaver.list
-# wget -O - https://dbeaver.io/debs/dbeaver.gpg.key | sudo apt-key add -
-# apt-get update
+yes | echo "deb https://dbeaver.io/debs/dbeaver-ce /" | sudo tee /etc/apt/sources.list.d/dbeaver.list
+wget -O - https://dbeaver.io/debs/dbeaver.gpg.key | sudo apt-key add -
+apt-get update
 apt-get install dbeaver-ce -y
 
 #####################################################################
@@ -97,7 +100,7 @@ tar -zxvf eclipse.tar.gz
 rm eclipse.tar.gz
 chmod +x eclipse/eclipse
 chown $usuario eclipse -R
-echo 'export PATH="$PATH:/usr/share/eclipse"' >> /home/$usuario/.profile
+echo 'export PATH="$PATH:/usr/share/eclipse"' >> /etc/profile
 # Gerando o ícone do Eclipse
 touch /usr/share/applications/Eclipse.desktop
 echo "[Desktop Entry]" >> /usr/share/applications/Eclipse.desktop
@@ -115,12 +118,12 @@ echo "StartupNotify=true" >> /usr/share/applications/Eclipse.desktop
 #####################################################################
 # sonar-scanner
 cd /usr/share
-wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
-unzip sonar-scanner-cli-3.3.0.1492-linux.zip
-rm sonar-scanner-cli-3.3.0.1492-linux.zip
-chmod +x sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner
-chown $usuario sonar-scanner-3.3.0.1492-linux -R
-echo 'export PATH="$PATH:/usr/share/sonar-scanner-3.3.0.1492-linux/bin"' >> /home/$usuario/.profile
+wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.0.0.1744-linux.zip
+unzip sonar-scanner-cli-4.0.0.1744-linux.zip
+rm sonar-scanner-cli-4.0.0.1744-linux.zip
+chmod +x sonar-scanner-4.0.0.1744-linux/bin/sonar-scanner
+chown $usuario sonar-scanner-4.0.0.1744-linux -R
+echo 'export PATH="$PATH:/usr/share/sonar-scanner-4.0.0.1744-linux/bin"' >> /etc/profile
 
 #####################################################################
 # robo 3t
@@ -132,7 +135,7 @@ chown $usuario robo3t-1.2.1-linux-x86_64-3e50a65/ -R
 cd robo3t-1.2.1-linux-x86_64-3e50a65/
 chmod +x bin/robo3t
 chown $usuario sonar-scanner-3.3.0.1492-linux -R
-echo 'export PATH="$PATH:/usr/share/robo3t-1.2.1-linux-x86_64-3e50a65/bin"' >> /home/$usuario/.profile
+echo 'export PATH="$PATH:/usr/share/robo3t-1.2.1-linux-x86_64-3e50a65/bin"' >> /etc/profile
 
 # Gerando o ícone do robo3t
 touch /usr/share/applications/Robo3t.desktop
@@ -170,7 +173,7 @@ unzip android-studio-ide-181.5056338-linux.zip
 rm android-studio-ide-181.5056338-linux.zip
 cd android-studio
 chmod +x bin/* -R 
-echo 'export PATH="$PATH:/usr/share/android-studio/bin"' >> /home/$usuario/.profile
+echo 'export PATH="$PATH:/usr/share/android-studio/bin"' >> /etc/profile
 chown $usuario /usr/share/android-studio -R
 touch /usr/share/applications/AndroidStudio.desktop
 echo "[Desktop Entry]" >> /usr/share/applications/AndroidStudio.desktop
@@ -196,12 +199,18 @@ timedatectl
 apt-get install virtualbox virtualbox-qt virtualbox-ext-pack virtualbox-guest-additions-iso virtualbox-guest-utils -y
 
 #####################################################################
-# instalação do Oracle Java 8
-yes | apt-get purge openjdk*
-add-apt-repository ppa:webupd8team/java -y
-yes | apt-get update
-apt-get install oracle-java8-installer -y
-apt-get install maven ant gradle -y
+# instalação manual do Oracle Java 8
+
+mkdir /usr/lib/jvm
+cd /usr/lib/jvm
+wget https://download.oracle.com/otn/java/jdk/8u211-b12/478a62b7d4e34b78b671c754eaaf38ab/jdk-8u211-linux-x64.tar.gz -O jre-linux.tar.gz
+tar -zxvf jdk-8u211-linux-x64.tar.gz
+rm jdk-8u211-linux-x64.tar.gz
+mv jdk* oracle-jdk-8
+ln -s /usr/lib/jvm/oracle-jdk-8 /usr/lib/jvm/java-oracle
+echo 'export PATH="$PATH:/usr/lib/jvm/java-oracle/bin"' >> /etc/profile
+echo "export JAVA_HOME=/usr/lib/jvm/java-oracle" >> /etc/profile
+echo "export CLASSPATH=.:/usr/lib/jvm/java-oracle/lib/tools.jar" >> /etc/profile
 
 #####################################################################
 # instalação do PDI
@@ -229,14 +238,14 @@ echo "StartupNotify=true" >> /usr/share/applications/pdi.desktop
 #####################################################################
 # logstash
 cd /usr/share/
-wget https://artifacts.elastic.co/downloads/logstash/logstash-6.6.1.tar.gz
-tar -zxvf logstash-6.6.1.tar.gz
-rm logstash-6.6.1.tar.gz
-mv logstash-6.6.1/ logstash
+wget https://artifacts.elastic.co/downloads/logstash/logstash-7.2.0.tar.gz
+tar -zxvf logstash-7.2.0.tar.gz
+rm logstash-7.2.0.tar.gz
+mv logstash-7.2.0/ logstash
 chmod +x logstash/bin/ -R
 chown $usuario logstash -R
-echo 'export PATH="$PATH:/usr/share/logstash/bin"' >> /home/$usuario/.profile
-source /home/$usuario/.profile
+echo 'export PATH="$PATH:/usr/share/logstash/bin"' >> /etc/profile
+source /etc/profile
 mkdir logstash/activemq
 curl http://central.maven.org/maven2/org/apache/activemq/activemq-all/5.15.8/activemq-all-5.15.8.jar -o /usr/share/logstash/activemq/activemq-all-5.15.8.jar
 logstash-plugin install logstash-output-jdbc
