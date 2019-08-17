@@ -290,6 +290,10 @@ timedatectl
 # ./configure --with-php-config=/opt/lampp/bin/php-config
 # make
 # cp modules/xdebug.so /opt/lampp/lib/php/extensions/no-debug-non-zts-20180731
+sudo echo 'export PATH="/opt/lampp/bin:$PATH"' >> /etc/profile
+sudo echo 'export PKG_CONFIG_LIBDIR="/usr/lib/pkgconfig"' >> /etc/profile
+sudo echo 'export CC="gcc -m32"' >> /etc/profile
+sudo echo 'export CXX="g++ -m32"' >> /etc/profile
 
 # editar /opt/lampp/etc/php.ini
 # adicionar:
