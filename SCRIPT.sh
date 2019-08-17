@@ -277,24 +277,29 @@ timedatectl
 # GAMBIARRAS DO PHP 
 # Execute esta parte manualmente:
 
+
 # cd /home/$USER/Downloads
 # wget https://www.apachefriends.org/xampp-files/7.3.8/xampp-linux-x64-7.3.8-2-installer.run
 # chmod +x xampp-linux-x64-7.3.8-2-installer.run
 # sudo ./xampp-linux-x64-7.3.8-2-installer.run
+
+
 
 # wget http://xdebug.org/files/xdebug-2.7.2.tgz
 # tar -xvzf xdebug-2.7.2.tgz
 # rm xdebug-2.7.2.tgz
 # cd xdebug-2.7.2
 # /opt/lampp/bin/phpize
-# ./configure --with-php-config=/opt/lampp/bin/php-config
+# ./configure --enable-xdebug --with-php-config=/opt/lampp/bin/php-config --x-libraries=/usr/lib
 # make
 # cp modules/xdebug.so /opt/lampp/lib/php/extensions/no-debug-non-zts-20180731
-sudo echo 'export PATH="/opt/lampp/bin:$PATH"' >> /etc/profile
-sudo echo 'export PKG_CONFIG_LIBDIR="/usr/lib/pkgconfig"' >> /etc/profile
-sudo echo 'export CC="gcc -m32"' >> /etc/profile
-sudo echo 'export CXX="g++ -m32"' >> /etc/profile
+
 
 # editar /opt/lampp/etc/php.ini
 # adicionar:
 # zend_extension = /opt/lampp/lib/php/extensions/no-debug-non-zts-20180731/xdebug.so
+# xdebug.remote_enable=1
+# xdebug.remote_autostart = 1
+# xdebug.remote_port="9000"
+# xdebug.profiler_enable=1
+# xdebug.remote_host="localhost"
