@@ -20,7 +20,7 @@ yes | apt-get upgrade
 
 #####################################################################
 # Pacotes básicos
-apt-get install build-essential xz-utils curl apt-utils git wget postgresql-client guake mongodb-clients sqlite3 umbrello net-tools unzip steam mysql-workbench -y
+apt-get install build-essential autoconf automake software-properties-common xz-utils curl apt-utils git wget postgresql-client guake mongodb-clients sqlite3 umbrello net-tools unzip steam mysql-workbench maven ant gradle -y
 
 #####################################################################
 # Google Chrome
@@ -35,14 +35,21 @@ yes | apt-get install linux-headers-$(uname -r)
 
 #####################################################################
 # instalação do Nodejs e NPM
-cd /home/$usuario/Downloads
-wget https://nodejs.org/dist/v10.16.0/node-v10.16.0.tar.gz -O node.tar.gz
-tar -zxvf node.tar.gz
-rm node.tar.gz
-cd node*
-./configure
-make
-make install
+
+# cd /home/$usuario/Downloads
+# wget https://nodejs.org/dist/v10.16.0/node-v10.16.0.tar.gz -O node.tar.gz
+# tar -zxvf node.tar.gz
+# rm node.tar.gz
+# cd node*
+# ./configure
+# make
+# make install
+curl -sSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
+echo "deb https://deb.nodesource.com/node_10.x bionic main" | tee /etc/apt/sources.list.d/nodesource.list
+echo "deb-src https://deb.nodesource.com/node_10.x bionic main" | tee -a /etc/apt/sources.list.d/nodesource.list
+apt-get update
+apt-get install nodejs
+chown $usuario /home/$usuario/.npm -R
 
 #####################################################################
 # Nestjs Framework
@@ -168,9 +175,9 @@ curl https://cli-assets.heroku.com/install.sh | sh
 #####################################################################
 # Android Studio
 cd /usr/share
-wget https://dl.google.com/dl/android/studio/ide-zips/3.2.1.0/android-studio-ide-181.5056338-linux.zip
-unzip android-studio-ide-181.5056338-linux.zip
-rm android-studio-ide-181.5056338-linux.zip
+wget https://dl.google.com/dl/android/studio/ide-zips/3.4.2.0/android-studio-ide-183.5692245-linux.tar.gz
+tar -zxvf android-studio-ide-183.5692245-linux.tar.gz
+rm android-studio-ide-183.5692245-linux.tar.gz
 cd android-studio
 chmod +x bin/* -R 
 echo 'export PATH="$PATH:/usr/share/android-studio/bin"' >> /etc/profile
@@ -200,13 +207,12 @@ apt-get install virtualbox virtualbox-qt virtualbox-ext-pack virtualbox-guest-ad
 
 #####################################################################
 # instalação manual do Oracle Java 8
+# Baixe manualmente o JDK e posicione-o na pasta /usr/lib/jvm para continuar
 
-mkdir /usr/lib/jvm
 cd /usr/lib/jvm
-wget https://download.oracle.com/otn/java/jdk/8u211-b12/478a62b7d4e34b78b671c754eaaf38ab/jdk-8u211-linux-x64.tar.gz -O jre-linux.tar.gz
-tar -zxvf jdk-8u211-linux-x64.tar.gz
-rm jdk-8u211-linux-x64.tar.gz
-mv jdk* oracle-jdk-8
+tar -zxvf jdk-8u221-linux-x64.tar.gz
+rm jdk-8u221-linux-x64.tar.gz
+mv jdk-8* oracle-jdk-8
 ln -s /usr/lib/jvm/oracle-jdk-8 /usr/lib/jvm/java-oracle
 echo 'export PATH="$PATH:/usr/lib/jvm/java-oracle/bin"' >> /etc/profile
 echo "export JAVA_HOME=/usr/lib/jvm/java-oracle" >> /etc/profile
@@ -264,3 +270,27 @@ apt-get upgrade -y
 
 echo 'HORARIO FINAL'
 timedatectl
+
+
+
+##################################
+# GAMBIARRAS DO PHP 
+# Execute esta parte manualmente:
+
+# cd /home/$USER/Downloads
+# wget https://www.apachefriends.org/xampp-files/7.3.8/xampp-linux-x64-7.3.8-2-installer.run
+# chmod +x xampp-linux-x64-7.3.8-2-installer.run
+# sudo ./xampp-linux-x64-7.3.8-2-installer.run
+
+# wget http://xdebug.org/files/xdebug-2.7.2.tgz
+# tar -xvzf xdebug-2.7.2.tgz
+# rm xdebug-2.7.2.tgz
+# cd xdebug-2.7.2
+# /opt/lampp/bin/phpize
+# ./configure --with-php-config=/opt/lampp/bin/php-config
+# make
+# cp modules/xdebug.so /opt/lampp/lib/php/extensions/no-debug-non-zts-20180731
+
+# editar /opt/lampp/etc/php.ini
+# adicionar:
+# zend_extension = /opt/lampp/lib/php/extensions/no-debug-non-zts-20180731/xdebug.so
