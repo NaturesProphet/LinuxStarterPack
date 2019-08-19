@@ -20,7 +20,7 @@ yes | apt-get upgrade
 
 #####################################################################
 # Pacotes básicos
-apt-get install build-essential autoconf automake software-properties-common qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils xz-utils curl apt-utils git wget postgresql-client guake mongodb-clients sqlite3 umbrello net-tools unzip steam mysql-workbench maven ant gradle -y
+apt-get install build-essential autoconf automake software-properties-common qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils xz-utils lxqt-sudo curl apt-utils git wget postgresql-client guake mongodb-clients sqlite3 umbrello net-tools unzip steam mysql-workbench maven ant gradle -y
 
 #####################################################################
 # Google Chrome
@@ -60,12 +60,12 @@ npm i -g @nestjs/cli typescript
 cd /$usuario/Downloads
 curl get.docker.com -Lo - | sh
 usermod -aG docker $usuario
-curl -L https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 
 #####################################################################
 #VSCode
-curl https://az764295.vo.msecnd.net/stable/61122f88f0bf01e2ac16bdb9e1bc4571755f5bd8/code_1.30.2-1546901646_amd64.deb --output vscode.deb
+curl https://az764295.vo.msecnd.net/stable/f06011ac164ae4dc8e753a3fe7f9549844d15e35/code_1.37.1-1565886362_amd64.deb --output vscode.deb
 dpkg -i vscode.deb
 
 #####################################################################
@@ -102,7 +102,7 @@ apt-get install dbeaver-ce -y
 #####################################################################
 # Eclipse
 cd /usr/share
-curl http://eclipse.c3sl.ufpr.br/technology/epp/downloads/release/2018-12/R/eclipse-jee-2018-12-R-linux-gtk-x86_64.tar.gz --output eclipse.tar.gz
+curl http://eclipse.c3sl.ufpr.br/technology/epp/downloads/release/2019-06/R/eclipse-jee-2019-06-R-linux-gtk-x86_64.tar.gz --output eclipse.tar.gz
 tar -zxvf eclipse.tar.gz
 rm eclipse.tar.gz
 chmod +x eclipse/eclipse
@@ -303,3 +303,6 @@ timedatectl
 # xdebug.remote_port="9000"
 # xdebug.profiler_enable=1
 # xdebug.remote_host="localhost"
+
+# icone:
+# sudo echo -e '[Desktop Entry]\n Version=1.0\n Name=xampp\n Exec=lxqt-sudo /opt/lampp/manager-linux-x64.run\n Icon=/opt/lampp/icons/world1.png\n Type=Application\n Categories=Development' | sudo tee /usr/share/applications/xampp.desktop
