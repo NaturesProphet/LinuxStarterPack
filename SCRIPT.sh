@@ -197,7 +197,7 @@ echo "Categories=GNOME;Application;Development;" >> /usr/share/applications/Andr
 echo "StartupNotify=true" >> /usr/share/applications/AndroidStudio.desktop
 
 #Icone do emulador Pixel 2
-echo -e '[Desktop Entry]\n Version=1.0\n Name=Android Emulator\n Exec=lxqt-sudo /home/$usuario/Android/Sdk/emulator -avd Pixel_2_API_28\n Icon=/usr/share/android-studio/bin/studio.png\n Type=Application\n Categories=Development' | sudo tee /usr/share/applications/androidEmulator.desktop
+echo -e '[Desktop Entry]\n Version=1.0\n Name=Android Emulator\n Exec=lxqt-sudo /home/$usuario/Android/Sdk/emulator -avd Pixel_2_API_28\n Icon=/home/$usuario/Android/Sdk/skins/galaxy_nexus/thumb.png\n Type=Application\n Categories=Development' | sudo tee /usr/share/applications/androidEmulator.desktop
 
 #####################################################################
 echo 'HORARIO SEMI-FINAL'
