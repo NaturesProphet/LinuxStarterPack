@@ -20,7 +20,7 @@ yes | apt-get upgrade
 
 #####################################################################
 # Pacotes básicos
-apt-get install build-essential autoconf automake software-properties-common qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils xz-utils lxqt-sudo curl apt-utils git wget postgresql-client guake mongodb-clients sqlite3 umbrello net-tools unzip steam mysql-workbench maven ant gradle -y
+apt-get install build-essential autoconf automake software-properties-common qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils xz-utils lxqt-sudo curl apt-utils git wget postgresql-client guake mongodb-clients sqlite3 umbrello net-tools unzip nmap steam mysql-workbench maven ant gradle -y
 
 #####################################################################
 # Google Chrome
@@ -180,7 +180,6 @@ tar -zxvf android-studio-ide-183.5692245-linux.tar.gz
 rm android-studio-ide-183.5692245-linux.tar.gz
 cd android-studio
 chmod +x bin/* -R 
-echo 'export PATH="$PATH:/usr/share/android-studio/bin"' >> /etc/profile
 chown $usuario /usr/share/android-studio -R
 touch /usr/share/applications/AndroidStudio.desktop
 echo "[Desktop Entry]" >> /usr/share/applications/AndroidStudio.desktop
@@ -195,9 +194,12 @@ echo "Terminal=false" >> /usr/share/applications/AndroidStudio.desktop
 echo "Type=Application" >> /usr/share/applications/AndroidStudio.desktop
 echo "Categories=GNOME;Application;Development;" >> /usr/share/applications/AndroidStudio.desktop
 echo "StartupNotify=true" >> /usr/share/applications/AndroidStudio.desktop
-
+chown $usuario:$usuario -R /usr/share/android-studio/
+echo 'export ANDROID_HOME=/home/'$usuario'/Android/Sdk' >> /etc/profile
+echo 'export PATH=$PATH:$ANDROID_HOME/tools' >> /etc/profile
+echo 'export PATH=$PATH:$ANDROID_HOME/platform-tools' >> /etc/profile
 #Icone do emulador Pixel 2
-echo -e '[Desktop Entry]\n Version=1.0\n Name=Android Emulator\n Exec=lxqt-sudo /home/$usuario/Android/Sdk/emulator/emulator -avd Pixel_2_API_28\n Icon=/home/$usuario/Android/Sdk/skins/galaxy_nexus/thumb.png\n Type=Application\n Categories=Development' | sudo tee /usr/share/applications/androidEmulator.desktop
+echo -e '[Desktop Entry]\n Version=1.0\n Name=Android Emulator\n Exec=lxqt-sudo /home/'$usuario'/Android/Sdk/emulator/emulator -avd Pixel_2_API_28\n Icon=/home/'$usuario'/Android/Sdk/skins/galaxy_nexus/thumb.png\n Type=Application\n Categories=Development' | sudo tee /usr/share/applications/androidEmulator.desktop
 
 #####################################################################
 echo 'HORARIO SEMI-FINAL'
