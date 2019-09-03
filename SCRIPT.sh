@@ -52,8 +52,8 @@ apt-get install nodejs
 chown $usuario /home/$usuario/.npm -R
 
 #####################################################################
-# Nestjs Framework
-npm i -g @nestjs/cli typescript
+# Frameworks
+npm i -g @nestjs/cli typescript react-native-cli
 
 #####################################################################
 # Docker
