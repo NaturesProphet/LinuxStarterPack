@@ -55,6 +55,9 @@ chown $usuario /home/$usuario/.npm -R
 # Frameworks
 npm i -g @nestjs/cli typescript react-native-cli
 
+# aumento de file watchers (necessário pra trabalhar com react-native)
+echo 'fs.inotify.max_user_watches=524288' >> /etc/sysctl.conf
+
 #####################################################################
 # Docker
 cd /$usuario/Downloads
