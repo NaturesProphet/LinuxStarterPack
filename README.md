@@ -45,7 +45,6 @@ postgresql-client
 sqlite3
 mongodb-clients
 mysql-workbench
-oracle-java8-installer
 Pentaho Data Integration - PDI
 maven
 ant
@@ -58,6 +57,7 @@ Postman
 DBeaver
 robo3t
 Heroku CLI
+Terraform CLI
 Eclipse
 Umbrello
 Nestjs Framework

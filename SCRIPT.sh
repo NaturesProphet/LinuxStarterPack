@@ -1,7 +1,7 @@
 #!/bin/bash
 ###################################################
 ###################################################
-######### Script atualizado em 19/08/2019 #########
+######### Script atualizado em 27/09/2019 #########
 ###################################################
 ###################################################
 
@@ -138,14 +138,14 @@ echo 'export PATH="$PATH:/usr/share/sonar-scanner-4.0.0.1744-linux/bin"' >> /etc
 #####################################################################
 # robo 3t
 cd /usr/share
-wget https://download.robomongo.org/1.2.1/linux/robo3t-1.2.1-linux-x86_64-3e50a65.tar.gz
-tar -zxvf robo3t-1.2.1-linux-x86_64-3e50a65.tar.gz
-rm robo3t-1.2.1-linux-x86_64-3e50a65.tar.gz
-chown $usuario robo3t-1.2.1-linux-x86_64-3e50a65/ -R
-cd robo3t-1.2.1-linux-x86_64-3e50a65/
+wget https://download-test.robomongo.org/linux/robo3t-1.3.1-linux-x86_64-7419c406.tar.gz
+tar -zxvf robo3t-1.3.1-linux-x86_64-7419c406.tar.gz
+rm robo3t-1.3.1-linux-x86_64-7419c406.tar.gz
+chown $usuario robo3t-1.3.1-linux-x86_64-7419c406/ -R
+cd robo3t-1.3.1-linux-x86_64-7419c406/
 chmod +x bin/robo3t
 chown $usuario sonar-scanner-3.3.0.1492-linux -R
-echo 'export PATH="$PATH:/usr/share/robo3t-1.2.1-linux-x86_64-3e50a65/bin"' >> /etc/profile
+echo 'export PATH="$PATH:/usr/share/robo3t-1.3.1-linux-x86_64-7419c406/bin"' >> /etc/profile
 
 # Gerando o ícone do robo3t
 touch /usr/share/applications/Robo3t.desktop
@@ -154,7 +154,7 @@ echo "Type=Application" >> /usr/share/applications/Robo3t.desktop
 echo "Encoding=UTF-8" >> /usr/share/applications/Robo3t.desktop
 echo "Name=Robo3t" >> /usr/share/applications/Robo3t.desktop
 echo "Comment=Robo3t" >> /usr/share/applications/Robo3t.desktop
-echo "Exec=/usr/share/robo3t-1.2.1-linux-x86_64-3e50a65/bin/robo3t" >> /usr/share/applications/Robo3t.desktop
+echo "Exec=/usr/share/robo3t-1.3.1-linux-x86_64-7419c406/bin/robo3t" >> /usr/share/applications/Robo3t.desktop
 echo "Terminal=false" >> /usr/share/applications/Robo3t.desktop
 echo "Type=Application" >> /usr/share/applications/Robo3t.desktop
 echo "Categories=GNOME;Application;Development;" >> /usr/share/applications/Robo3t.desktop
@@ -174,6 +174,13 @@ yes | apt-get install dotnet-sdk-2.1
 #####################################################################
 # Heroku CLI
 curl https://cli-assets.heroku.com/install.sh | sh
+
+#####################################################################
+# Terraform CLI
+cd /usr/bin
+wget https://releases.hashicorp.com/terraform/0.12.9/terraform_0.12.9_linux_amd64.zip
+unzip terraform_0.12.9_linux_amd64.zip
+rm terraform_0.12.9_linux_amd64.zip
 
 #####################################################################
 # Android Studio
