@@ -96,6 +96,29 @@ echo "Categories=GNOME;Application;Development;" >> /usr/share/applications/Post
 echo "StartupNotify=true" >> /usr/share/applications/Postman.desktop
 
 #####################################################################
+# ArgoUML
+
+cd /usr/share
+wget http://argouml-downloads.tigris.org/nonav/argouml-0.34/ArgoUML-0.34.tar.gz
+tar -zxvf ArgoUML-0.34.tar.gz
+mv argouml-0.34/ argouml
+chown $usuario /usr/share/argouml -R
+
+touch /usr/share/applications/argouml.desktop
+echo "[Desktop Entry]" >> /usr/share/applications/argouml.desktop
+echo "Type=Application" >> /usr/share/applications/argouml.desktop
+echo "Encoding=UTF-8" >> /usr/share/applications/argouml.desktop
+echo "Name=Argo UML" >> /usr/share/applications/argouml.desktop
+echo "Comment=argo uml" >> /usr/share/applications/argouml.desktop
+echo "Exec=java -jar /usr/share/argouml/argouml.jar" >> /usr/share/applications/argouml.desktop
+echo "Icon=java" >> /usr/share/applications/argouml.desktop
+echo "Terminal=false" >> /usr/share/applications/argouml.desktop
+echo "Type=Application" >> /usr/share/applications/argouml.desktop
+echo "Categories=GNOME;Application;Development;" >> /usr/share/applications/argouml.desktop
+echo "StartupNotify=true" >> /usr/share/applications/argouml.desktop
+
+
+#####################################################################
 #DBeaver
 yes | echo "deb https://dbeaver.io/debs/dbeaver-ce /" | sudo tee /etc/apt/sources.list.d/dbeaver.list
 wget -O - https://dbeaver.io/debs/dbeaver.gpg.key | sudo apt-key add -

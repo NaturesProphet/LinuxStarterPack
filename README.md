@@ -65,6 +65,7 @@ sonar-scanner
 DotNet Core SDK 2.1
 Android Studio
 Logstash
+ArgoUML
 ```
 __Jogos__
 ```bash
