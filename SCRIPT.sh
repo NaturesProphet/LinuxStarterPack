@@ -151,7 +151,7 @@ echo "StartupNotify=true" >> /usr/share/applications/Eclipse.desktop
 #####################################################################
 # sonar-scanner
 cd /usr/share
-wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.0.0.1744-linux.zip
+wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.2.0.1873-linux.zip
 unzip sonar-scanner-cli-4.0.0.1744-linux.zip
 rm sonar-scanner-cli-4.0.0.1744-linux.zip
 chmod +x sonar-scanner-4.0.0.1744-linux/bin/sonar-scanner
