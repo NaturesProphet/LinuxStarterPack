@@ -20,7 +20,7 @@ yes | apt-get upgrade
 
 #####################################################################
 # Pacotes básicos
-apt-get install build-essential autoconf automake software-properties-common qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils xz-utils lxqt-sudo curl apt-utils git wget postgresql-client guake mongodb-clients sqlite3 umbrello net-tools unzip nmap steam mysql-workbench maven ant gradle -y
+apt-get install build-essential autoconf automake htop software-properties-common qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils xz-utils lxqt-sudo curl apt-utils git wget postgresql-client guake mongodb-clients sqlite3 umbrello net-tools unzip nmap steam mysql-workbench maven ant gradle -y
 
 #####################################################################
 # Google Chrome
