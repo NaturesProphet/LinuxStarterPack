@@ -20,7 +20,7 @@ yes | apt-get upgrade
 
 #####################################################################
 # Pacotes básicos
-apt-get install build-essential autoconf automake htop software-properties-common qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils xz-utils lxqt-sudo curl apt-utils git wget postgresql-client guake mongodb-clients sqlite3 umbrello net-tools unzip nmap steam mysql-workbench maven ant gradle -y
+apt-get install build-essential autoconf automake htop software-properties-common qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils xz-utils lxqt-sudo curl apt-utils git wget guake mongodb-clients sqlite3 umbrello net-tools unzip nmap steam mysql-workbench maven ant gradle -y
 
 #####################################################################
 # Google Chrome
@@ -94,6 +94,13 @@ echo "Terminal=false" >> /usr/share/applications/Postman.desktop
 echo "Type=Application" >> /usr/share/applications/Postman.desktop
 echo "Categories=GNOME;Application;Development;" >> /usr/share/applications/Postman.desktop
 echo "StartupNotify=true" >> /usr/share/applications/Postman.desktop
+
+#####################################################################
+# Postgree client atualizado
+yes | echo "http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+apt-get update
+apt-get install postgresql-client
 
 #####################################################################
 # ArgoUML
