@@ -97,7 +97,7 @@ echo "StartupNotify=true" >> /usr/share/applications/Postman.desktop
 
 #####################################################################
 # Postgree client atualizado
-yes | echo "http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+yes | echo "deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 apt-get update
 apt-get install postgresql-client
@@ -214,27 +214,27 @@ rm terraform_0.12.9_linux_amd64.zip
 
 #####################################################################
 # Android Studio
-cd /usr/share
-wget https://dl.google.com/dl/android/studio/ide-zips/3.5.0.21/android-studio-ide-191.5791312-linux.tar.gz
-tar -zxvf android-studio-ide-183.5692245-linux.tar.gz
-rm android-studio-ide-183.5692245-linux.tar.gz
+cd /home/$usuario/
+wget https://dl.google.com/dl/android/studio/ide-zips/3.5.3.0/android-studio-ide-191.6010548-linux.tar.gz
+tar -zxvf android-studio-ide-191.6010548-linux.tar.gz
+rm android-studio-ide-191.6010548-linux.tar.gz
 cd android-studio
 chmod +x bin/* -R 
-chown $usuario /usr/share/android-studio -R
+chown $usuario /home/$usuario/android-studio -R
 touch /usr/share/applications/AndroidStudio.desktop
 echo "[Desktop Entry]" >> /usr/share/applications/AndroidStudio.desktop
 echo "Type=Application" >> /usr/share/applications/AndroidStudio.desktop
 echo "Encoding=UTF-8" >> /usr/share/applications/AndroidStudio.desktop
 echo "Name=Android Studio" >> /usr/share/applications/AndroidStudio.desktop
 echo "Comment=Android Studio" >> /usr/share/applications/AndroidStudio.desktop
-echo "Exec=/usr/share/android-studio/bin/studio.sh" >> /usr/share/applications/AndroidStudio.desktop
-echo "Path=/usr/share/android-studio/bin" >> /usr/share/applications/AndroidStudio.desktop
-echo "Icon=/usr/share/android-studio/bin/studio.png" >> /usr/share/applications/AndroidStudio.desktop
+echo "Exec=/home/"$usuario"/android-studio/bin/studio.sh" >> /usr/share/applications/AndroidStudio.desktop
+echo "Path=/home/"$usuario"/android-studio/bin" >> /usr/share/applications/AndroidStudio.desktop
+echo "Icon=/home/"$usuario"/android-studio/bin/studio.png" >> /usr/share/applications/AndroidStudio.desktop
 echo "Terminal=false" >> /usr/share/applications/AndroidStudio.desktop
 echo "Type=Application" >> /usr/share/applications/AndroidStudio.desktop
 echo "Categories=GNOME;Application;Development;" >> /usr/share/applications/AndroidStudio.desktop
 echo "StartupNotify=true" >> /usr/share/applications/AndroidStudio.desktop
-chown $usuario:$usuario -R /usr/share/android-studio/
+chown $usuario:$usuario -R /home/$usuario/android-studio/
 echo 'export ANDROID_HOME=/home/'$usuario'/Android/Sdk' >> /etc/profile
 echo 'export PATH=$PATH:$ANDROID_HOME/tools' >> /etc/profile
 echo 'export PATH=$PATH:$ANDROID_HOME/platform-tools' >> /etc/profile
