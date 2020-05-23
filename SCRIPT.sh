@@ -58,7 +58,7 @@ curl -fsSL https://deno.land/x/install/install.sh | sh
 echo 'export DENO_INSTALL=/home/'$usuario'/.deno'>> /etc/profile
 echo 'export PATH=$DENO_INSTALL/bin:$PATH'>> /etc/profile
 /home/$usuario/.deno/bin/deno completions bash > /usr/local/etc/bash_completion.d/deno.bash
-source /usr/local/etc/bash_completion.d/deno.bash
+echo 'source /usr/local/etc/bash_completion.d/deno.bash' >> /home/$usuario/.bashrc
 #####################################################################
 # Frameworks
 npm i -g @nestjs/cli typescript react-native-cli
