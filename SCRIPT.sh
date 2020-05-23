@@ -50,7 +50,15 @@ echo "deb-src https://deb.nodesource.com/node_10.x bionic main" | tee -a /etc/ap
 apt-get update
 apt-get install nodejs
 chown $usuario /home/$usuario/.npm -R
-
+#####################################################################
+# Deno
+mkdir /usr/local/etc/bash_completion.d
+cd /usr/local/etc/bash_completion.d/
+curl -fsSL https://deno.land/x/install/install.sh | sh
+echo 'export DENO_INSTALL=/home/'$usuario'/.deno'>> /etc/profile
+echo 'export PATH=$DENO_INSTALL/bin:$PATH'>> /etc/profile
+/home/$usuario/.deno/bin/deno completions bash > /usr/local/etc/bash_completion.d/deno.bash
+source /usr/local/etc/bash_completion.d/deno.bash
 #####################################################################
 # Frameworks
 npm i -g @nestjs/cli typescript react-native-cli
@@ -241,6 +249,14 @@ echo 'export PATH=$PATH:$ANDROID_HOME/platform-tools' >> /etc/profile
 #Icone do emulador Pixel 2
 echo -e '[Desktop Entry]\n Version=1.0\n Name=Android Emulator\n Exec=lxqt-sudo /home/'$usuario'/Android/Sdk/emulator/emulator -avd Pixel_2_API_28\n Icon=/home/'$usuario'/Android/Sdk/skins/galaxy_nexus/thumb.png\n Type=Application\n Categories=Development' | tee /usr/share/applications/androidEmulator.desktop
 
+#####################################################################
+# Flutter
+cd /home/$usuario/
+git clone https://github.com/flutter/flutter.git
+echo 'export PATH=$PATH:/home/'$usuario'/flutter/bin' >> /etc/profile
+./flutter/bin/flutter
+./flutter/bin/flutter precache
+./flutter/bin/flutter doctor
 #####################################################################
 echo 'HORARIO SEMI-FINAL'
 timedatectl
